@@ -34,7 +34,7 @@ public class Homework12 {
 	  cb = new CommonBrowser();
 		actions = new CommonActions();
 		driver = cb.initChromeDriver(constants.Test1_WebInfo.seleniumInputForm);
-		cb.pause(4000);
+		cb.pause(3000);
   }
   
 
