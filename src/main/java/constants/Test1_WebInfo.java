@@ -16,6 +16,9 @@ public class Test1_WebInfo {
 	public static String alada = "https://alada.vn/tai-khoan/dang-ky.html"; 
 	public static String demoSelenium = "https://demo.seleniumeasy.com/basic-checkbox-demo.html";
 	public static String seleniumInputForm = "https://demo.seleniumeasy.com/input-form-demo.html";
+	public static String riseFair = "https://rise.fairsketch.com/signin";
+	public static String Orange = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
+
 
 	
 }
