@@ -41,6 +41,7 @@ public class Homework13 {
 	}
 
 	@Test
+	@Ignore
 	public void LoginUnsuccesfullyByWrongEmail() {
 		LoginPageOrange login = new LoginPageOrange(driver);
 		cb.pause(2000);
@@ -50,7 +51,7 @@ public class Homework13 {
 		cb.pause(1000);
 		login.clickLogin();
 		cb.pause(2000);
-		assertTrue(login.checkExistedUserName()); 
+		assertTrue(login.checkLoginFail()); 
 
 	}
 
@@ -79,9 +80,10 @@ public class Homework13 {
 		cb.pause(1000);
 		login.clickLogin();
 		cb.pause(2000);
+		assertTrue(login.checkLoginFail()); 
+
 	}
 	@Test
-	@Ignore
 	public void LogOut() {
 		LoginPageOrange login = new LoginPageOrange(driver);
 		cb.pause(2000);
@@ -95,6 +97,7 @@ public class Homework13 {
 		cb.pause(1000);
 		login.clickLogOut();
 		cb.pause(1000);
+
 	}
 
 	@AfterTest

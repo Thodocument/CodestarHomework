@@ -15,7 +15,7 @@ public class LoginPageOrange extends BasePage {
 	By txtUser = By.xpath("//input[@name='username']");
 	By txtPassword = By.name("password");
 	By btnLogin = By.xpath("//button[@type='submit']");
-	By btnUser = By.xpath("//span[@class='oxd-userdropdown-tab']");
+	By btnUser = By.xpath("//span[@class='oxd-userdropdown-tab']//descendant::p");
 	By lnkLogOut = By.xpath("//a[normalize-space()='Logout']");
 	By txtLoginFail = By.xpath("//div[@class='oxd-alert-content oxd-alert-content--error']");
 	
