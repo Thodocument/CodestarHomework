@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-30T13:16:48 ICT" name="Default suite" finished-at="2023-10-30T13:17:08 ICT" duration-ms="19543">
+  <suite started-at="2023-11-13T20:06:37 ICT" name="Default suite" finished-at="2023-11-13T20:07:00 ICT" duration-ms="22475">
     <groups>
     </groups>
-    <test started-at="2023-10-30T13:16:48 ICT" name="Default test" finished-at="2023-10-30T13:17:08 ICT" duration-ms="19543">
-      <class name="homework.Homework13">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:homework.Homework13@475c9c31]" started-at="2023-10-30T13:16:48 ICT" name="beforeTest" finished-at="2023-10-30T13:16:58 ICT" duration-ms="10062" status="PASS">
+    <test started-at="2023-11-13T20:06:37 ICT" name="Default test" finished-at="2023-11-13T20:07:00 ICT" duration-ms="22475">
+      <class name="homework.FinalProject">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:homework.FinalProject@7eecb5b8]" started-at="2023-11-13T20:06:37 ICT" name="beforeTest" finished-at="2023-11-13T20:06:49 ICT" duration-ms="11526" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="LogOut()[pri:0, instance:homework.Homework13@475c9c31]" started-at="2023-10-30T13:16:58 ICT" name="LogOut" finished-at="2023-10-30T13:17:08 ICT" duration-ms="9288" status="PASS">
+        <test-method signature="AddEventUnsuccessfully()[pri:0, instance:homework.FinalProject@7eecb5b8]" started-at="2023-11-13T20:06:49 ICT" name="AddEventUnsuccessfully" finished-at="2023-11-13T20:07:00 ICT" duration-ms="10688" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- LogOut -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:homework.Homework13@475c9c31]" started-at="2023-10-30T13:17:08 ICT" name="afterTest" finished-at="2023-10-30T13:17:08 ICT" duration-ms="153" status="PASS">
+        </test-method> <!-- AddEventUnsuccessfully -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:homework.FinalProject@7eecb5b8]" started-at="2023-11-13T20:07:00 ICT" name="afterTest" finished-at="2023-11-13T20:07:00 ICT" duration-ms="181" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- homework.Homework13 -->
+      </class> <!-- homework.FinalProject -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

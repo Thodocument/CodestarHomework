@@ -11,7 +11,8 @@ public class LoginPageFactory {
 
 	public LoginPageFactory(WebDriver driver) {
 		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(driver, this); // dành cho trường hợp ko extend từ page khác phải khai báo lại 
+		
 	}
 
 	@FindBy(name = "email")
