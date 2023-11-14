@@ -6,7 +6,7 @@
       <class name="homework.FinalProject">
         <methods>
           <include name="beforeTest"/>
-          <include name="AddEventSuccessfully"/>
+          <include name="TC_ADDEVE_003"/>
           <include name="afterTest"/>
         </methods>
       </class> <!-- homework.FinalProject -->

@@ -199,23 +199,33 @@ public class LoginPageRiseFactory extends BasePageFactory {
 	
 		
 	}
-	public boolean checkExistedErrorMessageTitle() {
-		boolean isExisted = false;
-		WebElement errormsgtitle = driver.findElement(errorMsgTitle);
-		if (errormsgtitle.isDisplayed()) {
-			isExisted = true;
+		public boolean checkExistedErrorMessageTitle() {
+		    boolean isExisted = false;
+		    WebElement errormsgtitle = driver.findElement(errorMsgTitle);
+		    if (errormsgtitle.isDisplayed()) {
+		        isExisted = true;
+		        System.out.println("Test case is successful: Error message for title is displayed.");
+		    } else {
+		        System.out.println("Test case is unsuccessful: Error message for title is not displayed.");
+		    }
+		    return isExisted;
 		}
-		return isExisted;
-	}
+
+	
 	
 	public boolean checkExistedErrorMessageStartDay() {
-		boolean isExisted = false;
-		WebElement errormsgstartday = driver.findElement(errorMsgStartDay);
-		if (errormsgstartday.isDisplayed()) {
-			isExisted = true;
-		}
-		return isExisted;
+	    boolean isExisted = false;
+	    WebElement errormsgstartday = driver.findElement(errorMsgStartDay);
+	    if (errormsgstartday.isDisplayed()) {
+	        isExisted = true;
+	        System.out.println("Test case is successful: Error message for start day is displayed.");
+	    } else {
+	        System.out.println("Test case is unsuccessful: Error message for start day is not displayed.");
+	    }
+	    return isExisted;
+	}
+
 	}
 
 	
-}
+
