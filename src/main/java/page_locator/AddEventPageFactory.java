@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 public class AddEventPageFactory extends BasePageFactory {
 	protected WebDriver driver;
@@ -15,7 +16,7 @@ public class AddEventPageFactory extends BasePageFactory {
 		this.driver = driver;
 	}
 
-	@FindBy(xpath = "//a[contains(@href, '/events')]//parent::li")
+	@FindBy(xpath = "//a[contains(@href, 'events')]")
 	WebElement lnkEvent;
 	@FindBy(xpath = "//a[@class='btn btn-default add-btn' and @title='Add event']")
 	WebElement btnEvent;
@@ -39,7 +40,7 @@ public class AddEventPageFactory extends BasePageFactory {
 	WebElement btnMeridianUp;
 	@FindBy(xpath = "//input[@id='location']")
 	WebElement txtLocation;
-	@FindBy(xpath = "//span[contains(text(),'Demo Client')]//parent::a")
+	@FindBy(xpath = "//span[@id='select2-chosen-2']")
 	WebElement dlClient;
 	@FindBy(xpath = "//div[@id='events-dropzone']//button[@type='button'][normalize-space()='Close']")
 	WebElement btnCLose;
@@ -57,38 +58,68 @@ public class AddEventPageFactory extends BasePageFactory {
 	WebElement errorMsgStartDay;
 
 	public void clicklinkEvent() {
-lnkEvent.click();
+		lnkEvent.click();
 	}
+
+	public void verifyLinkEvent() {
+		String newBaseURL = "https://rise.fairsketch.com/events";
+		String currentURL = driver.getCurrentUrl();
+		try {
+			Assert.assertEquals(newBaseURL, currentURL);
+		} catch (Exception e) {
+			driver.get(newBaseURL);
+		}
+	}
+
 	public void clickButtonEvent() {
 		btnEvent.click();
 	}
+
 	public void setTitle(String title) {
 		txtTitle.sendKeys(title);
 	}
-	public void setDescription (String codestar) {
-		txtTitle.sendKeys(codestar);
+
+	public void setDescription(String codestar) {
+		txtDescription.clear();
+		txtDescription.sendKeys(codestar);
 	}
+
 	public void selectStartDay(String startDate) {
-	    dtpStartDay.click();
-	    JavascriptExecutor js = (JavascriptExecutor) driver;
-	    js.executeScript("arguments[0].removeAttribute('readonly','readonly');", dtpStartDay);
-	    dtpStartDay.clear();
-	    dtpStartDay.sendKeys("13-11-2023");
+		dtpStartDay.click();
+		dtpStartDay.clear();
+		dtpStartDay.sendKeys(startDate);
 	}
-	public void selectEndDay(String startDate) {
-	    dtpStartDay.click();
-	    JavascriptExecutor js = (JavascriptExecutor) driver;
-	    js.executeScript("arguments[0].removeAttribute('readonly','readonly');", dtpEndDay);
-	    dtpEndDay.clear();
-	    dtpEndDay.sendKeys("14-11-2023");
-	}
-	public void setLocation (String vietnam) {
-		txtTitle.sendKeys(vietnam);
-	}
-	public void clientOption() {
-		WebElement selectClient = driver.findElement(
-				By.xpath("//a[@data-action='toggleMeridian']//parent::td[1]"));
-				selectClient.click();
-	}	
-	
+	public void selectStartTime(String startTime) {
+		btnStartTime.click();
+		btnStartTime.clear();
+		btnStartTime.sendKeys(startTime);
 }
+
+	public void selectEndDay(String endDate) {
+		dtpEndDay.click();
+		dtpEndDay.clear();
+		dtpEndDay.sendKeys(endDate);
+	}
+	public void selectEndTime(String endTime) {
+		btnEndTime.click();
+		btnEndTime.clear();
+		btnEndTime.sendKeys(endTime);
+	}
+
+	public void setLocation(String location) {
+		txtLocation.sendKeys(location);
+	}
+
+	public void clientOption(String client) {
+		// Click to open the dropdown
+
+//		driver.findElement(By.id("s2id_clients_dropdown")).click();
+//
+//		// Find the desired option within the dropdown and click on it
+//		driver.findElement(By.xpath("//ul[@id='select2-results-7']")).click();
+		Select days = new Select(driver.findElement(By.xpath("//span[@id='select2-chosen-2']")));
+		days.deselectByVisibleText(client);
+		
+	}
+}
+
