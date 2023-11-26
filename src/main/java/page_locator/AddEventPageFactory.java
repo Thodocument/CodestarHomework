@@ -1,11 +1,18 @@
 package page_locator;
 
+import java.time.Duration;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class AddEventPageFactory extends BasePageFactory {
@@ -56,6 +63,7 @@ public class AddEventPageFactory extends BasePageFactory {
 	WebElement errorMsgTitle;
 	@FindBy(xpath = "//span[@id='start_date-error' and @class='help-block']")
 	WebElement errorMsgStartDay;
+	String strddlClient = "//ul[@id='select2-results-2']//li//div[contains(text(),'%s')]";
 
 	public void clicklinkEvent() {
 		lnkEvent.click();
@@ -89,17 +97,19 @@ public class AddEventPageFactory extends BasePageFactory {
 		dtpStartDay.clear();
 		dtpStartDay.sendKeys(startDate);
 	}
+
 	public void selectStartTime(String startTime) {
 		btnStartTime.click();
 		btnStartTime.clear();
 		btnStartTime.sendKeys(startTime);
-}
+	}
 
 	public void selectEndDay(String endDate) {
 		dtpEndDay.click();
 		dtpEndDay.clear();
 		dtpEndDay.sendKeys(endDate);
 	}
+
 	public void selectEndTime(String endTime) {
 		btnEndTime.click();
 		btnEndTime.clear();
@@ -117,9 +127,20 @@ public class AddEventPageFactory extends BasePageFactory {
 //
 //		// Find the desired option within the dropdown and click on it
 //		driver.findElement(By.xpath("//ul[@id='select2-results-7']")).click();
-		Select days = new Select(driver.findElement(By.xpath("//span[@id='select2-chosen-2']")));
-		days.deselectByVisibleText(client);
-		
+		dlClient.click();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String xPathClient = String.format(strddlClient, client);
+		WebElement ddlClientOption = driver.findElement(By.xpath(xPathClient));
+		ddlClientOption.click();
+
+		// Select days = new
+		// Select(driver.findElement(By.xpath("//span[@id='select2-chosen-2']")));
+		// days.deselectByVisibleText(client);
+
 	}
 }
-
